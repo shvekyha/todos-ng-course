@@ -1,3 +1,4 @@
+import { UtilsModule } from './../utils/utils.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodolistComponent } from './todolist.component';
@@ -7,12 +8,14 @@ import { FooterComponent } from './footer.component';
 import { ListComponent } from './list.component';
 import { ItemComponent } from './item.component';
 import { ToggleComponent } from './toggle.component';
+import { TodolistService } from "./todolist.service";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule, UtilsModule
   ],
   declarations: [TodolistComponent, HeaderComponent, MainComponent, FooterComponent, ListComponent, ItemComponent, ToggleComponent],
-  exports: [TodolistComponent]
+  exports: [TodolistComponent],
+  providers: [ TodolistService ]
 })
 export class TodolistModule { }

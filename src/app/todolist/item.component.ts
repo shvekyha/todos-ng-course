@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
         <input class="toggle"
               [checked]="item.completed"
               type="checkbox">
-        <label>{{ item.title }}</label>
+        <label>{{ item.title | low:'!!!' }} created at: {{ item.created | date: 'dd/MM/yyyy'}}</label>
         <button class="destroy"></button>
       </div>
       <input class="edit">

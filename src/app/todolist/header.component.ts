@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   template: `
     <header class="header">
-      <h1>todos</h1>
+      <h1>{{title}}</h1>
       <input class="new-todo"
            placeholder="What needs to be done?"
-           autofocus>
+           #input
+           autofocus
+           (keydown.enter)="itemAdded.emit(input.value)"
+           >
     </header>
   `,
   styles: []
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  constructor() { }
+  @Input() title:string;
 
-  ngOnInit() {
-  }
-
+  @Output() itemAdded = new EventEmitter<string>();
 }

@@ -4,9 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-main',
   template: `
     <section class="main">
-      <input class="toggle-all"
-            type="checkbox">
-      <app-list></app-list>
+      <ng-content></ng-content>
     </section>
   `,
   styles: []

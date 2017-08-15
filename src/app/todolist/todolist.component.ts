@@ -1,11 +1,16 @@
+import { Todolist } from './todolist';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-todolist',
   template: `
     <section class="todoapp">
-      <app-header></app-header>
-      <app-main></app-main>
+      <app-header [title]="title"
+                  (itemAdded)="list.addItem($event)"></app-header>
+      <app-main>
+        <app-toggle></app-toggle>
+        <app-list [items]="list.items"></app-list>
+      </app-main>
       <app-footer></app-footer>
     </section>
   `,
@@ -13,7 +18,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodolistComponent implements OnInit {
 
-  constructor() { }
+  public list: Todolist;
+  public title: string;
+
+  constructor() { 
+    this.list = new Todolist();
+    this.title = 'Todos';
+  }
 
   ngOnInit() {
   }

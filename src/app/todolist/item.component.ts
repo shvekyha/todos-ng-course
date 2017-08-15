@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Item } from './item';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
     <li>
       <div class="view">
         <input class="toggle"
+              [checked]="item.completed"
               type="checkbox">
-        <label>Todo Title</label>
+        <label>{{ item.title }}</label>
         <button class="destroy"></button>
       </div>
       <input class="edit">
@@ -15,11 +17,8 @@ import { Component, OnInit } from '@angular/core';
   `,
   styles: []
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() item: Item;
 
 }

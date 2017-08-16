@@ -1,3 +1,4 @@
+import { LoginModule } from './login/login.module';
 import { PanelComponent } from './utils/panel.component';
 import { UtilsModule } from './utils/utils.module';
 import { TodolistModule } from './todolist/todolist.module';
@@ -13,7 +14,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     TodolistModule,
-    UtilsModule
+    UtilsModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

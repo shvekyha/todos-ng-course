@@ -9,12 +9,21 @@ import { ListComponent } from './list.component';
 import { ItemComponent } from './item.component';
 import { ToggleComponent } from './toggle.component';
 import { TodolistService } from "./todolist.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   imports: [
-    CommonModule, UtilsModule
+    CommonModule, UtilsModule, HttpClientModule
   ],
-  declarations: [TodolistComponent, HeaderComponent, MainComponent, FooterComponent, ListComponent, ItemComponent, ToggleComponent],
+  declarations: [
+    TodolistComponent, 
+    HeaderComponent, 
+    MainComponent, 
+    FooterComponent, 
+    ListComponent, 
+    ItemComponent, 
+    ToggleComponent
+  ],
   exports: [TodolistComponent],
   providers: [ TodolistService ]
 })

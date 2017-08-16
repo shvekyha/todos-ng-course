@@ -25,10 +25,5 @@ export class ClassDirective implements OnInit{
 
   ngOnInit(){
     //console.log('this.appClass: '+this.appClass); //this will work if there's a getter for the this.appClass
-
-    // //todo: complete implementation - add class only if this.appClass.active==true
-    // Object.keys(this.appClass).forEach(name => {
-    //   this.renderer.addClass(this.element.nativeElement, name);
-    // });
   }
 }

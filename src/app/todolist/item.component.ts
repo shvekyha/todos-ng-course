@@ -12,7 +12,7 @@ import { Component, Input } from '@angular/core';
               (change)="item.completed=toggle.checked" 
               [checked]="item.completed"
               type="checkbox">
-        <label>{{ item.title | low:'!!!' }} created at: {{ item.created | date: 'dd/MM/yyyy'}}</label>
+        <label appMarker="blue" (onMark)="onMarkHanlder()">{{ item.title | low:'!!!' }} created at: {{ item.created | date: 'dd/MM/yyyy'}}</label>
         <button class="destroy"></button>
       </div>
       <input class="edit">
@@ -24,4 +24,7 @@ export class ItemComponent {
 
   @Input() item: Item;
 
+  onMarkHanlder(){
+    console.log('onMarkHanlder');
+  }
 }

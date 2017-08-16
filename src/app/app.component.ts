@@ -12,10 +12,11 @@ import { Component } from '@angular/core';
       <h1>Content of H1</h1>
     </ng-template-->
 
-    <h1 *appIf="flag">Content of H1</h1>
+    <!--h1 *appIf="flag">Content of H1</h1-->
 
-    <!--app-todolist-></app-todolist-->
-
+    <!--app-todolist></app-todolist-->
+    
+    <app-panel></app-panel>
 
   `,
 })

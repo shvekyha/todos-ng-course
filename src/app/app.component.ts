@@ -16,11 +16,10 @@ import { Component } from '@angular/core';
 
     <!-- <app-panel></app-panel> -->
 
-    <app-login></app-login>
-    <app-todolist></app-todolist>
-    
-    
-    
+    <a routerLink="login">login</a>
+    <a routerLink="list">list</a>
+
+    <router-outlet></router-outlet>
 
   `,
 })

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <form class="">
       <label>Username:</label><input type="text">
       <label>Password:</label><input type="password">
-      <button type="submit">LOGIN</button>
+      <button type="submit" (click)="onClick()">LOGIN</button>
     </form>
   `,
   styles: []

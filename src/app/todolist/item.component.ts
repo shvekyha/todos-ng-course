@@ -3,8 +3,9 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item',
+  styles: ['.active {color:green}'],
   template: `
-    <li [ngClass]="{completed: item.completed}">
+    <li [appClass]="{active: item.completed}" [ngClass]="{completed: item.completed}">
       <div class="view">
         <!-- dont do the #toggle and toggle.checked its bad practice -->
         <input class="toggle"
@@ -17,8 +18,7 @@ import { Component, Input } from '@angular/core';
       </div>
       <input class="edit">
     </li>
-  `,
-  styles: []
+  `
 })
 export class ItemComponent {
 

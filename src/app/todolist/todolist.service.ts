@@ -2,32 +2,29 @@ import { LoggerService } from '../utils/logger.service';
 import { Item } from "./item";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { NgRedux } from "@angular-redux/store";
 
 @Injectable()
 export class TodolistService {
-    private _items: Item[];
-    private _logger: LoggerService;
-    private _http: HttpClient;
+    
+    static ADD_ITEM = 'ADD_ITEM';
+    static REMOVE_ITEM = 'REMOVE_ITEM';
 
-    constructor(logger: LoggerService, http: HttpClient){
-        this._items = [];
-        this._logger = logger;
-        this._http = http;
-
-        const headers = new HttpHeaders();
-        headers.set('token','123');
+    constructor(private store: NgRedux<any>){
         
-        http.get<Item[]>('https://jsonplaceholder.typicode.com/todos', { headers: headers} )
-            .subscribe(response => this._items = response);
-    }
-
-    get items(): Item[]{
-        return this._items
     }
 
     public addItem (title: string) {
-        //this.items.push(new Item(title));
-        //this._logger.log('item added!');
-        this._items = [ ...this._items, new Item(title)];
+        this.store.dispatch({
+            type: TodolistService.ADD_ITEM,
+            payload: new Item(title)
+        });
+    }
+
+    public removeItem (item: Item) {
+        this.store.dispatch({
+            type: TodolistService.REMOVE_ITEM,
+            payload: item
+        });
     }
 }

@@ -1,3 +1,4 @@
+import { NgRedux } from '@angular-redux/store';
 import { LoggerService } from './utils/logger.service';
 import { TodolistComponent } from './todolist/todolist.component';
 import { LoginModule } from './login/login.module';
@@ -10,7 +11,15 @@ import { RouterModule, Router } from '@angular/router';
 import { AppRouter } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from "./login/login.component";
+import { LoginComponent } from './login/login.component';
+
+import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
+import { combineReducers } from 'redux';
+import { listReducer } from "./todolist/list.reducer";
+
+const rootReducer = combineReducers({
+  list: listReducer
+});
 
 @NgModule({
   declarations: [
@@ -21,17 +30,15 @@ import { LoginComponent } from "./login/login.component";
     TodolistModule,
     UtilsModule,
     LoginModule,
-    AppRouter
+    AppRouter,
+    NgReduxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 
 export class AppModule { 
-  constructor (title:Title, router: Router){
-    title.setTitle('my APP');
-
-    //subscribe to events of the router
-    //router.events.subscribe(events => console.log(events));
+  constructor (ngRedux: NgRedux<any>, devTool: DevToolsExtension){
+    ngRedux.configureStore(rootReducer, {}, [], [devTool.enhancer()]);
   }
 }

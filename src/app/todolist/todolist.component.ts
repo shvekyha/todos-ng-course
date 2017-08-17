@@ -11,7 +11,7 @@ import { ActivatedRoute } from "@angular/router";
                   (itemAdded)="list.addItem($event)"></app-header>
       <app-main>
         <app-toggle></app-toggle>
-        <app-list [items]="list.items"></app-list>
+        <app-list></app-list>
       </app-main>
       <app-footer></app-footer>
     </section>

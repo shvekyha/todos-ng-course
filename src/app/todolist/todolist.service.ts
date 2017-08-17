@@ -2,7 +2,7 @@ import { LoggerService } from '../utils/logger.service';
 import { Item } from "./item";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { NgRedux } from "@angular-redux/store";
+import { NgRedux } from '@angular-redux/store';
 
 @Injectable()
 export class TodolistService {
@@ -14,7 +14,7 @@ export class TodolistService {
         
     }
 
-    public addItem (title: string) {
+    public addItem (title: string): void {
         this.store.dispatch({
             type: TodolistService.ADD_ITEM,
             payload: new Item(title)

@@ -1,21 +1,20 @@
-import { NgRedux } from '@angular-redux/store';
+import { Item } from './todolist/item';
 import { LoggerService } from './utils/logger.service';
+import { AppRouter } from './app.routes';
 import { TodolistComponent } from './todolist/todolist.component';
+import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
-import { PanelComponent } from './utils/panel.component';
 import { UtilsModule } from './utils/utils.module';
 import { TodolistModule } from './todolist/todolist.module';
 import { BrowserModule, Title } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import { AppRouter } from './app.routes';
-
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-
-import { NgReduxModule, DevToolsExtension } from '@angular-redux/store';
+import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
 import { combineReducers } from 'redux';
 import { listReducer } from "./todolist/list.reducer";
+
+//import { PanelComponent } from './utils/panel.component';
 
 const rootReducer = combineReducers({
   list: listReducer

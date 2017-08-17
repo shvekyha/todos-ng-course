@@ -26,7 +26,8 @@ export class TodolistService {
     }
 
     public addItem (title: string) {
-        this.items.push(new Item(title));
-        this._logger.log('item added!')
+        //this.items.push(new Item(title));
+        //this._logger.log('item added!');
+        this._items = [ ...this._items, new Item(title)];
     }
 }

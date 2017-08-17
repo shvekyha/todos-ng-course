@@ -32,6 +32,6 @@ export class AppModule {
     title.setTitle('my APP');
 
     //subscribe to events of the router
-    router.events.subscribe(events => console.log(events));
+    //router.events.subscribe(events => console.log(events));
   }
 }

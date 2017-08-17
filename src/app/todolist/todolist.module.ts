@@ -11,6 +11,10 @@ import { ToggleComponent } from './toggle.component';
 import { TodolistService } from "./todolist.service";
 import { HttpClientModule } from "@angular/common/http";
 
+class MockApi{
+  public items = [{ title: 'mock item', completed: true }]
+}
+
 @NgModule({
   imports: [
     CommonModule, UtilsModule, HttpClientModule
@@ -25,6 +29,8 @@ import { HttpClientModule } from "@angular/common/http";
     ToggleComponent
   ],
   exports: [TodolistComponent],
-  providers: [ TodolistService ]
+  providers: [ 
+    { provide: TodolistService, useClass: MockApi }
+  ]
 })
 export class TodolistModule { }
